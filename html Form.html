@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link href="/css/bootstrap.min.css" rel="stlylessheet">
+    
+
+</head>
+ <body>
+
+    <div class="container my-5">
+            <form action="" method="post" th:action="@{processLogin} th:object="${LoginModel}">
+            <div class="mb-3">
+          <label for="Username" class="form-label">Username</label>
+          <input th:field = "*{username}" type="text" class="form-control" id="Username" aria-describedby="usernamehelp">
+          <div id="usernamehelp" class="form-text">We'll never share your email with anyone else.</div>
+          <p class="alert alert-danger"th:if= "$(#fields.hasErrors('username'))" th:errors="*{username}">Username error</p>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input th:field = "*{password}" type="text" class="form-control" id="password">
+          <p class="alert alert-danger"th:if= "$(#fields.hasErrors('password'))" th:errors="*{password}">Password error</p>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+
+
+
+    </body>
+    </html>
